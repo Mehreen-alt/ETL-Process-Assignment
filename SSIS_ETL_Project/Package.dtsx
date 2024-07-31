@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="93"
-  DTS:VersionGUID="{6874F99B-61E3-49A5-B290-2ABDCD979BBA}">
+  DTS:VersionBuild="95"
+  DTS:VersionGUID="{828F14F4-7CBB-426B-938E-098E121131A3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1837,6 +1837,16 @@ WHERE
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{E4E5BB7E-7A91-4AF8-BB70-256DB2BDD581}"
+      DTS:From="Package\Extract and Load to Staging"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Incremental Load" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -1848,7 +1858,7 @@ WHERE
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="206.4,41.6"
           Id="Package\Extract and Load to Staging"
@@ -1857,6 +1867,40 @@ WHERE
           Size="158.4,41.6"
           Id="Package\Incremental Load"
           TopLeft="137.499992487332,203.666665250394" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="200.699994672835,117.866666136318">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="15.9999978144969,85.7999991140762"
+              Start="0,0"
+              End="15.9999978144969,78.2999991140762">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.8999995570381" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38.8999995570381"
+                    Point2="0,42.8999995570381"
+                    Point3="4,42.8999995570381" />
+                  <mssgle:LineSegment
+                    End="11.9999978144969,42.8999995570381" />
+                  <mssgle:CubicBezierSegment
+                    Point1="11.9999978144969,42.8999995570381"
+                    Point2="15.9999978144969,42.8999995570381"
+                    Point3="15.9999978144969,46.8999995570381" />
+                  <mssgle:LineSegment
+                    End="15.9999978144969,78.2999991140762" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -1997,9 +2041,17 @@ WHERE
           Id="Package\Incremental Load\OLE DB Source"
           TopLeft="261.363632469015,76.7272715839473" />
         <NodeLayout
+          Size="167.2,41.6"
+          Id="Package\Incremental Load\OLE DB Command"
+          TopLeft="387.454539681023,259.727268857035" />
+        <NodeLayout
           Size="153.6,41.6"
           Id="Package\Incremental Load\Conditional Split"
           TopLeft="254.363632573323,177.909088258039" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Incremental Load\OLE DB Destination"
+          TopLeft="92.3636349873109,266.1818142154" />
         <EdgeLayout
           Id="Package\Incremental Load.Paths[OLE DB Source Output]"
           TopLeft="334.263632521169,118.327271583947">
@@ -2022,10 +2074,6 @@ WHERE
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="171.2,41.6"
-          Id="Package\Incremental Load\OLE DB Destination"
-          TopLeft="92.3636349873109,266.1818142154" />
         <EdgeLayout
           Id="Package\Incremental Load.Paths[New Records Condition]"
           TopLeft="306.896965906656,219.509088258039">
@@ -2062,10 +2110,6 @@ WHERE
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="167.2,41.6"
-          Id="Package\Incremental Load\OLE DB Command"
-          TopLeft="387.454539681023,259.727268857035" />
         <EdgeLayout
           Id="Package\Incremental Load.Paths[Existing Records Condition]"
           TopLeft="355.430299239989,219.509088258039">
@@ -2098,7 +2142,7 @@ WHERE
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-0.949813373233283,21.3360444907261,117.5238671875,11.6630859375"
+              BoundingBox="-0.949813373233518,21.3360444907261,117.5238671875,11.6630859375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
