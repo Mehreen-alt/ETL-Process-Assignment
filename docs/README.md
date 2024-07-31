@@ -62,43 +62,43 @@ END
 1. Run the data cleaning and transformation steps included in the SQLScripts/SQLQuery.sql script to remove duplicates, handle null values, and correct data formats.
 
 # Step 4: Incremental Load to Production Table
-Run the incremental load process to insert new records and update existing records in the prod.Users table. This process is also included in the SQLScripts/SQLQuery.sql script.
+1. Run the incremental load process to insert new records and update existing records in the prod.Users table. This process is also included in the SQLScripts/SQLQuery.sql script.
 
 # Data Cleaning and Transformation
-The data cleaning and transformation steps include:
-Removing duplicate records.
-Handling null and incorrect age values.
-Correcting invalid date formats.
-Validating email formats.
+1. The data cleaning and transformation steps include:
+2. Removing duplicate records.
+3. Handling null and incorrect age values.
+4. Correcting invalid date formats.
+5. Validating email formats.
 
 # Incremental Load Process
 The incremental load process ensures that new records are inserted into the production table and existing records are updated accordingly.
 
 # Execution Report
 ## Records Processed
-Total records processed: 29
-Records inserted: 9
-Records updated: 26
-Records excluded: 3
+1. Total records processed: 29
+2. Records inserted: 9
+3. Records updated: 26
+4. Records excluded: 3
 
 # Challenges Encountered
-Duplicate UserID records
-Null values in critical fields
-Invalid date formats were found in RegistrationDate and LastLoginDate fields.
-Incorrect email formats were also identified.
-Non-numeric values found in the Age field.
+1. Duplicate UserID records
+2. Null values in critical fields
+3. Invalid date formats were found in RegistrationDate and LastLoginDate fields.
+4. Incorrect email formats were also identified.
+5. Non-numeric values found in the Age field.
 
 # Solutions
-Removed records with null UserID values to maintain data integrity.
-Used CTE to identify and remove duplicate records.
-Used TRY_CAST to handle invalid date formats and set them to NULL.
-Used pattern matching to validate email formats and set invalid emails to NULL.
-Applied data transformation to convert non-numeric and negative Age values to NULL.
+1. Removed records with null UserID values to maintain data integrity.
+2. Used CTE to identify and remove duplicate records.
+3. Used TRY_CAST to handle invalid date formats and set them to NULL.
+4. Used pattern matching to validate email formats and set invalid emails to NULL.
+5. Applied data transformation to convert non-numeric and negative Age values to NULL.
 
 # Future Improvements
-Automate the data loading process using SSIS packages.
-Implement additional data validation checks.
-Create more testing data
+1. Automate the data loading process using SSIS packages.
+2. Implement additional data validation checks.
+3. Create more testing data
 
 # References
 https://docs.microsoft.com/en-us/sql/integration-services/sql-server-integration-services
